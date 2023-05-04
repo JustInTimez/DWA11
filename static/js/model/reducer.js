@@ -1,3 +1,11 @@
+/**
+ * A reducer function that calculates a new state based on the current state and the dispatched action
+ *
+ * @param {object} state - The current state
+ * @param {object} action - The dispatched action
+ * @param {string} action.type - The type of the dispatched action
+ * @returns {object} The new state
+ */
 function reducer(state, action) {
   switch (action.type) {
     case "ADD":
