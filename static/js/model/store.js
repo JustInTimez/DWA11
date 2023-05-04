@@ -19,15 +19,28 @@ function createStore(initialState, reducer) {
   let state = initialState;
   const listeners = [];
 
+  /**
+   * Returns the current state of the Tally App
+   * @returns {InitialState} The current state of the Tally App
+   */
   function getState() {
     return state;
   }
 
+  /**
+   * Dispatches an action to update the state of the Tally App
+   * @param {Object} action - The action to be dispatched
+   */
   function dispatch(action) {
     state = reducer(state, action);
     listeners.forEach((listener) => listener());
   }
 
+  /**
+   * Subscribes a listener function to be called every time the state is updated
+   * @param {Function} listener - The listener function to be subscribed
+   * @returns {Function} A function to unsubscribe the listener
+   */
   function subscribe(listener) {
     listeners.push(listener);
     return () => {
